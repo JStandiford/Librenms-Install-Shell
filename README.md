@@ -43,6 +43,7 @@ Login and validate the install
 ### Step 6:
     vi /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
+systemctl enable snmpd
 systemctl restart snmpd
 
 
