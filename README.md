@@ -35,6 +35,7 @@ Return to gui setup and 'Finish Install'
     
 ### Step 6:
 Open browser and go to: http://librenms-centos.qnsk12.edu
+
 Login and validate the install
     
 ### Step 7:
