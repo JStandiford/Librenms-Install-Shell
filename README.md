@@ -7,7 +7,7 @@ LibreNMS是一套開源的網路裝置管理軟體，其分支於Observium，並
 ## 安裝步驟：
 
 ### Step 1:
-    git clone https://github.com/BensonRUEI/Librenms-Install-Shell.git
+    git clone https://github.com/JStandiford/Librenms-Install-Shell.git
   
 ### Step 2:
 根據系統不同執行不同的Shell Script，並且建議使用root來進行安裝。
