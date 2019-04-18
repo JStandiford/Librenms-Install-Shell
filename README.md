@@ -34,17 +34,17 @@ Return to gui setup and 'Finish Install'
     
     
 ### Step 6:
-    Open browser and go to: http://librenms-centos.qnsk12.edu
-    Login and validate the install
+Open browser and go to: http://librenms-centos.qnsk12.edu
+Login and validate the install
     
 ### Step 7:
-    Add your first device by adding the localhost (server LibreNMS is running on) 
+Add your first device by adding the localhost (server LibreNMS is running on) 
     
 ### Step 8:
-    Edit LibreNMS config.php file with custom config.php file
+Edit LibreNMS config.php file with custom config.php file
     
 ### Step 9: 
-    Setup Oxidized
+Setup Oxidized
    
 ### Switch SNMP 
 Modifiy the SNMP settings on your switches
