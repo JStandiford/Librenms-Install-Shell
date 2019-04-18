@@ -55,7 +55,7 @@ systemctl restart php-fpm
 # Setting NGINX
 echo		server {	 >> /etc/nginx/conf.d/librenms.conf
 echo		 listen      80\;	 >> /etc/nginx/conf.d/librenms.conf
-echo		 server_name $ip\; 	 >> /etc/nginx/conf.d/librenms.conf
+echo		 server_name librenms-centos.qnsk12.edu\; 	 >> /etc/nginx/conf.d/librenms.conf
 echo		 root        \/opt\/librenms\/html\;	 >> /etc/nginx/conf.d/librenms.conf
 echo		 index       index.php\;	 >> /etc/nginx/conf.d/librenms.conf
 echo			 >> /etc/nginx/conf.d/librenms.conf
@@ -126,6 +126,7 @@ cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 
 # Copy cron 
 cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
+
 # Copy log file
 cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
