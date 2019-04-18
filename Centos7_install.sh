@@ -2,25 +2,26 @@
 
 #get ip
 ip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
-#安裝相關套件
+
+# Install related kits
 yum install -y epel-release
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 yum install -y composer cronie fping git ImageMagick jwhois mariadb mariadb-server mtr MySQL-python net-snmp net-snmp-utils nginx nmap php72w php72w-cli php72w-common php72w-curl php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-process php72w-snmp php72w-xml php72w-zip python-memcached rrdtool
 
-#新增使用者
+# New user
 useradd librenms -d /opt/librenms -M -r
 usermod -a -G librenms nginx
 
-#下載LibreNMS
+# Download LibreNMS
 cd /opt
 git clone https://github.com/librenms/librenms.git librenms
 
-#設定資料庫(這邊注意要修改密碼，預設為KH_password)
+# Configure database
 systemctl start mariadb
 systemctl enable mariadb
 mysql -u root <<EOF
 	CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-	CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'KH_password';
+	CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'QNSis1librenmspw!';
 	GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
 	FLUSH PRIVILEGES;
 	exit
@@ -39,8 +40,8 @@ echo [mariadb-5.5] >> /etc/my.cnf.d/server.cnf
 
 systemctl restart mariadb
 
-#設定Web Server
-echo date.timezone = \"Asia/Taipei\" >> /etc/php.ini
+# Setting Web Server
+echo date.timezone = \"America/Chicago\" >> /etc/php.ini
 
 sed -e 's/user = apache/user = nginx/' -i /etc/php-fpm.d/www.conf
 sed -e 's/\listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm\/php7.2-fpm.sock/' -i /etc/php-fpm.d/www.conf
@@ -51,7 +52,7 @@ echo listen.mode = 0660 >> /etc/php-fpm.d/www.conf
 systemctl enable php-fpm
 systemctl restart php-fpm
 
-#設定NGINX
+# Setting NGINX
 echo		server {	 >> /etc/nginx/conf.d/librenms.conf
 echo		 listen      80\;	 >> /etc/nginx/conf.d/librenms.conf
 echo		 server_name $ip\; 	 >> /etc/nginx/conf.d/librenms.conf
@@ -80,7 +81,7 @@ systemctl enable nginx
 systemctl restart nginx
 
 
-#設定SELinux
+# Setting SELinux
 yum install -y policycoreutils-python
 semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/logs(/.*)?'
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/logs(/.*)?'
@@ -96,7 +97,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/bootstrap/cache(/.
 restorecon -RFvv /opt/librenms/bootstrap/cache/
 setsebool -P httpd_can_sendmail=1
 
-#建立http_fping.tt
+# Setting http_fping.tt
 echo	module http_fping 1.0\;	 >> /opt/http_fping.tt
 echo		 >> /opt/http_fping.tt
 echo	require {	 >> /opt/http_fping.tt
@@ -114,21 +115,21 @@ checkmodule -M -m -o http_fping.mod http_fping.tt
 semodule_package -o http_fping.pp -m http_fping.mod
 semodule -i http_fping.pp
 
-#設定防火牆
+# Configure Firewall
 firewall-cmd --zone public --add-service http
 firewall-cmd --permanent --zone public --add-service http
 firewall-cmd --zone public --add-service https
 firewall-cmd --permanent --zone public --add-service https
 
-#配置snmpd
+# Configure snmpd
 cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 
-#加入排程
+# Copy cron 
 cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
-#轉出 logs 目錄下的記錄檔
+# Copy log file
 cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
-#設定LibreNMS
+# Configure LibreNMS
 chown -R librenms:librenms /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs 
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
@@ -139,5 +140,5 @@ setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 
 clear
-echo "安裝完成"
-echo "請開啟網址: http://"$ip"/install.php"
+echo " Installation Completed "
+echo " Please open the URL: http://"yourlibrenmsIP"/install.php"
