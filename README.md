@@ -1,39 +1,35 @@
-## 自動化安裝LibreNMS
-LibreNMS是一套開源的網路裝置管理軟體，其分支於Observium，並且加入了社群版沒有的Alert功能。
+## Automated installation of LIbreNMS
+LibreNMS is an open source network device management software.
 
-本專案為自動化安裝LibreNMS Shell Script。
-
-
-## 安裝步驟：
+## Install Steps：
 
 ### Step 1:
     git clone https://github.com/JStandiford/Librenms-Install-Shell.git
   
 ### Step 2:
-根據系統不同執行不同的Shell Script，並且建議使用root來進行安裝。
+Different shell scripts are executed depending on the system, and root is recommended for installation
   
   
-#### CentOS 7 以上
+#### CentOS 7 or above
   
     sh Librenms-Install-Shell/Centos7_install.sh
   
-#### Ubuntu 16.04 以上
-  
+#### Ubuntu 16.04 or above  
     sh Librenms-Install-Shell/ubuntu_install.sh
 
 ### Step 3:
-開啟瀏覽器連至：http://YourIP/install.php ,根據內容進行相關設定(如DB Password、DB Name)。
+Open the browser and connect to：http://YourIP/install.php  and make related settings based on the content (such as DB Password、DB Name).
 
 ### Step 4:
-將Step所顯示的config.php文件寫入至/opt/librenms/config.php
+Create the config file and paste the contents provided to /opt/librenms/config.php
 
     vim /opt/librenms/config.php
 
 ### Step 5:
     chown librenms:librenms /opt/librenms/config.php
    
-### Switch SNMP 設定教學
-請自行修改IP與CommunityString
+### Switch SNMP 
+Modifiy the SNMP settings on your switches
 
     #CISCO
     conf t
@@ -53,7 +49,7 @@ LibreNMS是一套開源的網路裝置管理軟體，其分支於Observium，並
     write memory
 
 
-### 安裝教學影片
+### Installation Videos provided by BensonRUEI
     Ubuntu 18.04 install LibreNMS
 [![](http://img.youtube.com/vi/PDYOwL5pDG8/0.jpg)](http://www.youtube.com/watch?v=PDYOwL5pDG8 "")
     
