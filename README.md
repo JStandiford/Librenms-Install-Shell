@@ -1,4 +1,4 @@
-## Automated installation of LIbreNMS
+## Automated installation of LibreNMS
 LibreNMS is an open source network device management software.
 
 ## Install Steps：
