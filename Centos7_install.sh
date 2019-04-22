@@ -21,7 +21,7 @@ systemctl start mariadb
 systemctl enable mariadb
 mysql -u root <<EOF
 	CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-	CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'QNSis1librenmspw!';
+	CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'QNSis1monitordb';
 	GRANT ALL PRIVILEGES ON librenms.* TO 'librenms'@'localhost';
 	FLUSH PRIVILEGES;
 	exit
@@ -96,6 +96,7 @@ semanage fcontext -a -t httpd_sys_content_t '/opt/librenms/bootstrap/cache(/.*)?
 semanage fcontext -a -t httpd_sys_rw_content_t '/opt/librenms/bootstrap/cache(/.*)?'
 restorecon -RFvv /opt/librenms/bootstrap/cache/
 setsebool -P httpd_can_sendmail=1
+setsebool -P httpd_execmem 1
 
 # Setting http_fping.tt
 echo	module http_fping 1.0\;	 >> /opt/http_fping.tt
@@ -132,13 +133,12 @@ cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
 # Configure LibreNMS
 chown -R librenms:librenms /opt/librenms
-setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs 
-setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
+setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
+setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
+chgrp apache /var/lib/php/session/
 cd /opt/librenms
 ./scripts/composer_wrapper.php install --no-dev
 chown -R librenms:librenms /opt/librenms
-setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs 
-setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs
 
 clear
 echo " Installation Completed "
