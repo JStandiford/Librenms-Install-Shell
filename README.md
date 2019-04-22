@@ -78,6 +78,12 @@ Modifiy the SNMP settings on your switches
     snmp-server host IP version 2c CommunityString
     exit
     write memory
+    
+    
+### Setup Telnet/SSH URL Handler
+Follwing instructions via this link:  https://ipfabric.atlassian.net/wiki/spaces/NK/pages/91619331/Set+Up+Telnet+SSH+URL+Handler+on+MS+Windows+7+and+later
+
+
 
 
 ### Installation Videos provided by BensonRUEI
