@@ -21,7 +21,7 @@ Run install script depending on the system, and root is recommended for installa
     sh Librenms-Install-Shell/Centos7_install.sh
   
 #### Ubuntu 16.04 or above  
-    sh Librenms-Install-Shell/ubuntu_install.sh
+    sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
 
 
 ### Step 4:
