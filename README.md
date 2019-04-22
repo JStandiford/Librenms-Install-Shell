@@ -3,10 +3,19 @@ LibreNMS is an open source network device management software.
 
 ## Install Steps：
 
-### Step 1: Download and Install the latest version of CentOS or Ubuntu Server
+### Step 1: Create VM and use settings from librenms_vmsettings
+
+
+### Step 2: Download and Install the latest version of CentOS or Ubuntu Server to the new VM
    > http://mirror.mobap.edu/centos/
    > http://mirror.math.princeton.edu/pub/ubuntu-iso/
+   
+   
+### Step 3: Set static IP on new VM per librenms_vmsettings using one of the following methods
 
+    vi /etc/sysconfig/network-scripts/ifcfg-eth0
+    
+    nmtui edit eth0
 
 ### Step 2: Clone Git 
     git clone https://github.com/JStandiford/Librenms-Install-Shell.git
@@ -21,6 +30,7 @@ Run install script depending on the system, and root is recommended for installa
     sh Librenms-Install-Shell/Centos7_install.sh
   
 #### Ubuntu 16.04 or above  
+
     sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
 
 
@@ -28,13 +38,13 @@ Run install script depending on the system, and root is recommended for installa
     vi /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
    
-      curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+    curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
    
-      chmod +x /usr/bin/distro
+    chmod +x /usr/bin/distro
    
-      systemctl enable snmpd
+    systemctl enable snmpd
    
-      systemctl restart snmpd
+    systemctl restart snmpd
       
       
 ### Step 5:
