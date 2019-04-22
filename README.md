@@ -25,6 +25,19 @@ Run install script depending on the system, and root is recommended for installa
 
 
 ### Step 4:
+    vi /etc/snmp/snmpd.conf
+Set your community string by replacing RANDOMSTRINGGOESHERE
+   
+      curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+   
+      chmod +x /usr/bin/distro
+   
+      systemctl enable snmpd
+   
+      systemctl restart snmpd
+      
+      
+### Step 5:
 Open the browser and connect to：http://YourLibreNMSIP/install.php  and make related settings based on the content (such as DB Password、DB Name, gui login info,).  Correct any errors based the info given.  
 
 Create the config file and paste the contents provided to /opt/librenms/config.php
@@ -36,23 +49,11 @@ Create the config file and paste the contents provided to /opt/librenms/config.p
 Return to gui setup and 'Finish Install'
 
 
-### Step 5:
+### Step 6:
 Open browser and go to: http://librenms-centos.qnsk12.edu
 
 Login and validate the install
 
-
-### Step 6:
-    vi /etc/snmp/snmpd.conf
-Set your community string by replacing RANDOMSTRINGGOESHERE
-   
-   curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
-   
-   chmod +x /usr/bin/distro
-   
-   systemctl enable snmpd
-   
-   systemctl restart snmpd
 
 
 ### Step 7:
