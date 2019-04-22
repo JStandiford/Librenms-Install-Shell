@@ -3,10 +3,12 @@ LibreNMS is an open source network device management software.
 
 ## Install Steps：
 
-### Step 1: Install CentOS or Ubuntu
+### Step 1: Download and Install the latest version of CentOS or Ubuntu Server
+   > http://mirror.mobap.edu/centos/
+   > http://mirror.math.princeton.edu/pub/ubuntu-iso/
 
 
-### Step 2:
+### Step 2: Clone Git 
     git clone https://github.com/JStandiford/Librenms-Install-Shell.git
 
 
