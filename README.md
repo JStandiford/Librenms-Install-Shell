@@ -45,8 +45,11 @@ Login and validate the install
 ### Step 6:
     vi /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
-systemctl enable snmpd
-systemctl restart snmpd
+   curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+   chmod +x /usr/bin/distro
+   
+   systemctl enable snmpd
+   systemctl restart snmpd
 
 
 ### Step 7:
