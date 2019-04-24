@@ -55,7 +55,7 @@ systemctl restart php-fpm
 # Setting NGINX
 echo		server {	 >> /etc/nginx/conf.d/librenms.conf
 echo		 listen      80\;	 >> /etc/nginx/conf.d/librenms.conf
-echo		 server_name librenms-centos.qnsk12.edu\; 	 >> /etc/nginx/conf.d/librenms.conf
+echo		 server_name librenms-centos2.qnsk12.edu\; 	 >> /etc/nginx/conf.d/librenms.conf
 echo		 root        \/opt\/librenms\/html\;	 >> /etc/nginx/conf.d/librenms.conf
 echo		 index       index.php\;	 >> /etc/nginx/conf.d/librenms.conf
 echo			 >> /etc/nginx/conf.d/librenms.conf
