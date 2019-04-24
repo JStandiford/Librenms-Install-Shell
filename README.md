@@ -83,6 +83,10 @@ Edit LibreNMS config.php file with custom config.php file
     ./snmp-scan.py
 
 
+### Step 12:
+Setup Alert Rules, Alert Templates, and Alert Transports per screenshots and txt docs
+
+
 ### Step : 
 Setup Oxidized
 
