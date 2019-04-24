@@ -40,22 +40,11 @@ echo [mariadb-5.5] >> /etc/my.cnf.d/server.cnf
 
 systemctl restart mariadb
 
-# Setting Web Server
-echo date.timezone = \"America/Chicago\" >> /etc/php.ini
-
-sed -e 's/user = apache/user = nginx/' -i /etc/php-fpm.d/www.conf
-sed -e 's/\listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm\/php7.2-fpm.sock/' -i /etc/php-fpm.d/www.conf
-echo listen.owner = nginx >> /etc/php-fpm.d/www.conf
-echo listen.group = nginx >> /etc/php-fpm.d/www.conf
-echo listen.mode = 0660 >> /etc/php-fpm.d/www.conf
-
-systemctl enable php-fpm
-systemctl restart php-fpm
 
 # Setting NGINX
 echo		server {	 >> /etc/nginx/conf.d/librenms.conf
 echo		 listen      80\;	 >> /etc/nginx/conf.d/librenms.conf
-echo		 server_name librenms-centos2.qnsk12.edu\; 	 >> /etc/nginx/conf.d/librenms.conf
+echo		 server_name librenms-centos.qnsk12.edu\; 	 >> /etc/nginx/conf.d/librenms.conf
 echo		 root        \/opt\/librenms\/html\;	 >> /etc/nginx/conf.d/librenms.conf
 echo		 index       index.php\;	 >> /etc/nginx/conf.d/librenms.conf
 echo			 >> /etc/nginx/conf.d/librenms.conf
@@ -79,6 +68,19 @@ echo		 }	 >> /etc/nginx/conf.d/librenms.conf
 echo		}	 >> /etc/nginx/conf.d/librenms.conf
 systemctl enable nginx
 systemctl restart nginx
+
+
+# Setting Web Server
+echo date.timezone = \"America/Chicago\" >> /etc/php.ini
+
+sed -e 's/user = apache/user = nginx/' -i /etc/php-fpm.d/www.conf
+sed -e 's/\listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm\/php7.2-fpm.sock/' -i /etc/php-fpm.d/www.conf
+echo listen.owner = nginx >> /etc/php-fpm.d/www.conf
+echo listen.group = nginx >> /etc/php-fpm.d/www.conf
+echo listen.mode = 0660 >> /etc/php-fpm.d/www.conf
+
+systemctl enable php-fpm
+systemctl restart php-fpm
 
 
 # Setting SELinux
