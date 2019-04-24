@@ -8,6 +8,7 @@ LibreNMS is an open source network device management software.
 
 ### Step 2: Download and Install the latest version of CentOS or Ubuntu Server to the new VM
    > http://mirror.mobap.edu/centos/
+   
    > http://mirror.math.princeton.edu/pub/ubuntu-iso/
    
    
