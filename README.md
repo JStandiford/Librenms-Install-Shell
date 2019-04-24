@@ -77,7 +77,13 @@ Add your first device by adding the localhost (server LibreNMS is running on)
 Edit LibreNMS config.php file with custom config.php file
 
 
-### Step 11: 
+### Step 11:
+    ./validate.php
+    ./daily.sh
+    ./snmp-scan.py
+
+
+### Step : 
 Setup Oxidized
 
 
