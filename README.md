@@ -20,11 +20,16 @@ Set it during the initial OS installation
     
     nmtui edit eth0
 
-### Step 4: Clone Git 
+
+### Step 4: Update System
+    yum -y update
+
+
+### Step 5: Clone Git 
     git clone https://github.com/JStandiford/Librenms-Install-Shell.git
 
 
-### Step 5:
+### Step 6:
 Run install script depending on the system, and root is recommended for installation
   
   
@@ -37,7 +42,7 @@ Run install script depending on the system, and root is recommended for installa
     sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
 
 
-### Step 6:
+### Step 7:
     vi /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
    
@@ -50,7 +55,7 @@ Set your community string by replacing RANDOMSTRINGGOESHERE
     systemctl restart snmpd
       
       
-### Step 7:
+### Step 8:
 Open the browser and connect to：http://YourLibreNMSIP/install.php  and make related settings based on the content (such as DB Password、DB Name, gui login info,).  Correct any errors based the info given.  
 
 Create the config file and paste the contents provided to /opt/librenms/config.php
@@ -62,28 +67,28 @@ Create the config file and paste the contents provided to /opt/librenms/config.p
 Return to gui setup and 'Finish Install'
 
 
-### Step 8:
+### Step 9:
 Open browser and go to: http://librenms-centos.qnsk12.edu
 
 Login and validate the install
 
 
 
-### Step 9:
+### Step 10:
 Add your first device by adding the localhost (server LibreNMS is running on) 
 
 
-### Step 10:
+### Step 11:
 Edit LibreNMS config.php file with custom config.php file
 
 
-### Step 11:
+### Step 12:
     ./validate.php
     ./daily.sh
     ./snmp-scan.py
 
 
-### Step 12:
+### Step 13:
 Setup Alert Rules, Alert Templates, and Alert Transports per screenshots and txt docs
 
 
