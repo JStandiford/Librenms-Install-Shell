@@ -12,9 +12,7 @@ LibreNMS is an open source network device management software.
    > http://mirror.math.princeton.edu/pub/ubuntu-iso/
    
    
-### Step 3: Set static IP on new VM per librenms_vmsettings using one of the following methods
-
-Set it during the initial OS installation
+### Step 3: Verify static IP on new VM per librenms_vmsettings using one of the following methods
 
     vi /etc/sysconfig/network-scripts/ifcfg-eth0
     
@@ -22,7 +20,10 @@ Set it during the initial OS installation
 
 
 ### Step 4: Update System
+    yum install nano
+    yum install git
     yum -y update
+    
 
 
 ### Step 5: Clone Git 
@@ -43,7 +44,7 @@ Run install script depending on the system, and root is recommended for installa
 
 
 ### Step 7:
-    vi /etc/snmp/snmpd.conf
+    nano /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
    
     curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
@@ -60,7 +61,7 @@ Open the browser and connect to：http://YourLibreNMSIP/install.php  and make re
 
 Create the config file and paste the contents provided to /opt/librenms/config.php
 
-    vi /opt/librenms/config.php
+    nano /opt/librenms/config.php
 
     chown librenms:librenms /opt/librenms/config.php
     
