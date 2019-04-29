@@ -40,6 +40,9 @@ Run install script depending on the system, and root is recommended for installa
 #### Ubuntu 16.04 or above  
 
     sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
+    
+    
+Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
 
 ### Step 7:
