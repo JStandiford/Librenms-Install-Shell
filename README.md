@@ -42,20 +42,19 @@ Run install script depending on the system, and root is recommended for installa
     sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
     
     
-Delete the server section from /etc/nginx/nginx.conf to disable the default site
+### Step 7: Post Script Tasks
+- Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
+- Set Timezone in php.ini
 
-### Step 7: Set Timezone in php.ini
+    nano /etc/php.ini
 
-      nano /etc/php.ini
-   
-         date.timezone = America/Chicago
+- Setup SNMP on the server
 
-
-### Step 7:
-    nano /etc/snmp/snmpd.conf
-Set your community string by replacing RANDOMSTRINGGOESHERE
-Set location and contact info
+     nano /etc/snmp/snmpd.conf
+     
+     Set your community string by replacing RANDOMSTRINGGOESHERE
+    Set location and contact info
    
     curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
    
