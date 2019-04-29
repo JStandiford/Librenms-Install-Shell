@@ -47,22 +47,22 @@ Run install script depending on the system, and root is recommended for installa
 
 - Set Timezone in php.ini
 
-    nano /etc/php.ini
+      nano /etc/php.ini
 
 - Setup SNMP on the server
 
-     nano /etc/snmp/snmpd.conf
+      nano /etc/snmp/snmpd.conf
      
-     Set your community string by replacing RANDOMSTRINGGOESHERE
-    Set location and contact info
+   - Set your community string by replacing RANDOMSTRINGGOESHERE
+   - Set location and contact info
    
-    curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+      curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
    
-    chmod +x /usr/bin/distro
+      chmod +x /usr/bin/distro
    
-    systemctl enable snmpd
+      systemctl enable snmpd
    
-    systemctl restart snmpd
+      systemctl restart snmpd
       
       
 ### Step 8:
