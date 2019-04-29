@@ -15,7 +15,7 @@ LibreNMS is an open source network device management software.
 
     vi /etc/sysconfig/network-scripts/ifcfg-eth0
     
-    nmtui edit eth0
+    nmtui << change hostname if non qnsk12.edu domain
 
 
 ### Step 4: Update System
@@ -48,6 +48,7 @@ Delete the server section from /etc/nginx/nginx.conf to disable the default site
 ### Step 7:
     nano /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
+Set location and contact info
    
     curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
    
