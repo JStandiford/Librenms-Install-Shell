@@ -4,12 +4,11 @@ LibreNMS is an open source network device management software.
 ## Install Steps：
 
 ### Step 1: Create VM and use settings from librenms_vmsettings
+   > ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/LibreNMS_Files/
 
 
-### Step 2: Download and Install the latest version of CentOS or Ubuntu Server to the new VM
-   > http://mirror.mobap.edu/centos/
-   
-   > http://mirror.math.princeton.edu/pub/ubuntu-iso/
+### Step 2: Download and Install CentOS to the new VM
+   > ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/CentOS-ks.iso
    
    
 ### Step 3: Verify static IP on new VM per librenms_vmsettings using one of the following methods
@@ -125,8 +124,6 @@ Follwing instructions via this link:  https://ipfabric.atlassian.net/wiki/spaces
 
 
 ### Installation Videos provided by BensonRUEI
-    Ubuntu 18.04 install LibreNMS
-[![](http://img.youtube.com/vi/PDYOwL5pDG8/0.jpg)](http://www.youtube.com/watch?v=PDYOwL5pDG8 "")
-    
+   
     CentOS 7 install LibreNMS
 [![](http://img.youtube.com/vi/UxsgXax2wBE/0.jpg)](http://www.youtube.com/watch?v=UxsgXax2wBE "")
