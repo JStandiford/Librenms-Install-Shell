@@ -47,9 +47,9 @@ Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
 ### Step 7: Set Timezone in php.ini
 
-   nano /etc/php.ini
+      nano /etc/php.ini
    
-      date.timezone = America/Chicago
+         date.timezone = America/Chicago
 
 
 ### Step 7:
