@@ -45,6 +45,12 @@ Run install script depending on the system, and root is recommended for installa
 Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
 
+### Step 7: Set Timezone in php.ini
+
+   nano /etc/php.ini
+      date.timezone = America/Chicago
+
+
 ### Step 7:
     nano /etc/snmp/snmpd.conf
 Set your community string by replacing RANDOMSTRINGGOESHERE
