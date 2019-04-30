@@ -45,7 +45,7 @@ Run install script depending on the system, and root is recommended for installa
 ### Step 7: Post Script Tasks
 - Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
-- Set Timezone in php.ini
+- Set Timezone in php.ini - find date.timezone and set to America/Chicago  (make sure to uncomment the line by removing the ;)
 
       nano /etc/php.ini
 
@@ -53,16 +53,16 @@ Run install script depending on the system, and root is recommended for installa
 
       nano /etc/snmp/snmpd.conf
      
-   - Set your community string by replacing RANDOMSTRINGGOESHERE
-   - Set location and contact info
+         - Set your community string by replacing RANDOMSTRINGGOESHERE
+         - Set location and contact info
    
-      curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+      - curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
    
-      chmod +x /usr/bin/distro
+      - chmod +x /usr/bin/distro
    
-      systemctl enable snmpd
+      - systemctl enable snmpd
    
-      systemctl restart snmpd
+      - systemctl restart snmpd
       
       
 ### Step 8:
