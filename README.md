@@ -63,6 +63,8 @@ Run install script depending on the system, and root is recommended for installa
       - systemctl enable snmpd
    
       - systemctl restart snmpd
+
+      - chown -R librenms:librenms /opt/librenms        
       
       
 ### Step 8:
