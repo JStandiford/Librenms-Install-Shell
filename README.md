@@ -68,7 +68,7 @@ Run install script depending on the system, and root is recommended for installa
       
       
 ### Step 8:
-Open the browser and connect to：http://YourLibreNMSIP/install.php  and make related settings based on the content (such as DB Password、DB Name, gui login info,).  Correct any errors based the info given.  
+Open the browser and connect to：http://YourLibreNMSIP/install.php  and make related settings based on the content (such as DB Password、DB Name, gui login info,).  Correct any errors based on the info given.  
 
 Create the config file and paste the contents provided to /opt/librenms/config.php
 
