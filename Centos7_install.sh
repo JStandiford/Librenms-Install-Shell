@@ -14,11 +14,10 @@ usermod -a -G librenms nginx
 
 # Download LibreNMS
 cd /opt
-git clone https://github.com/librenms/librenms.git librenms
+composer create-project --no-dev --keep-vcs librenms/librenms librenms dev-master
 
 # Configure database
 systemctl start mariadb
-systemctl enable mariadb
 mysql -u root <<EOF
 	CREATE DATABASE librenms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 	CREATE USER 'librenms'@'localhost' IDENTIFIED BY 'QNSis1monitordb';
@@ -38,6 +37,7 @@ echo [mysqld-5.5] >> /etc/my.cnf.d/server.cnf
 echo [mariadb] >> /etc/my.cnf.d/server.cnf
 echo [mariadb-5.5] >> /etc/my.cnf.d/server.cnf
 
+systemctl enable mariadb
 systemctl restart mariadb
 
 # Setting Web Server
@@ -134,9 +134,6 @@ chown -R librenms:librenms /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 chgrp apache /var/lib/php/session/
-cd /opt/librenms
-./scripts/composer_wrapper.php install --no-dev
-chown -R librenms:librenms /opt/librenms
 
 clear
 echo " Installation Completed "
