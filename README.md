@@ -110,9 +110,71 @@ Edit LibreNMS config.php file with custom config.php file
 Setup Alert Rules, Alert Templates, and Alert Transports per screenshots and txt docs
 
 
-### Step : 
-Setup Oxidized
+### Step 14: Setup Oxidized
 
+Install Ruby 2.3 build dependencies
+
+    yum install curl gcc-c++ patch readline readline-devel zlib zlib-devel
+    yum install libyaml-devel libffi-devel openssl-devel make cmake
+    yum install bzip2 autoconf automake libtool bison iconv-devel libssh2-devel libicu-devel
+
+Install RVM
+
+    curl -L get.rvm.io | bash -s stable
+
+Setup RVM environment and compile and install Ruby 2.3 and set it as default
+
+    source /etc/profile.d/rvm.sh
+    rvm install 2.3
+    rvm use --default 2.3
+    
+Install Oxidized
+
+    gem install oxidized 
+    gem install oxidized-script
+    gem install oxidized-web
+    
+Run oxidized twice to generate config files
+
+    oxidized
+    oxidized 
+
+Edit the config file with contents of custom config file
+
+    nano /root/.config/oxidized/config
+    
+Copy Oxidized service
+
+Find the service:
+
+    sudo find / -name "oxidized.service"
+Notate the path, and move to systemd based on the location discovered from “find”; the oxidized service file contains notes on the correct path to copy per flavor of linux:
+
+    cp /usr/local/rvm/gems/ruby-2.3.8/gems/oxidized-0.26.3/extra/oxidized.service /usr/lib/systemd/system/
+
+Change user from “oxidized” to “root” and edit the ExecStart within the oxidized.service file:
+
+    nano /usr/lib/systemd/system/oxidized.service
+    
+ExecStart=/usr/local/rvm/gems/ruby-2.3.8/wrappers/oxidized     
+    
+Oxidized will pull information via the LibreNMS API; the API can be generated through the LIbreNMS web interface at:
+Settings -> API -> API Settings
+
+After generating the token, test the token with the following command:
+
+    curl -H ‘X-Auth-Token: 1234567890’ http://127.0.0.1/api/v0/oxidized
+    
+Start the service, add firewall exception for correct zone
+
+    sudo systemctl daemon-reload
+    sudo systemctl enable oxidized.service
+    sudo systemctl start oxidized
+    sudo systemctl status oxidized
+    sudo firewall-cmd --zone=public --permanent --add-port=8888/tcp
+    firewall-cmd --permanent --zone=trusted --add-port=8843/tcp
+    firewall-cmd --reload
+    
 
 ### Switch SNMP 
 Modifiy the SNMP settings on your switches
@@ -125,7 +187,7 @@ Modifiy the SNMP settings on your switches
     end
     write memory 
 
-
+    
     #Aruba
     configure t
     snmp-server community CommunityString
