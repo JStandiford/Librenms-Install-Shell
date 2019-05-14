@@ -16,6 +16,8 @@ LibreNMS is an open source network device management software.
     vi /etc/sysconfig/network-scripts/ifcfg-eth0
     
     nmtui << change hostname if non qnsk12.edu domain
+    
+    nano /etc/resolv.conf << change search name if non qnsk12.edu domain
 
 
 ### Step 4: Update System
@@ -44,6 +46,10 @@ Run install script depending on the system, and root is recommended for installa
     
 ### Step 7: Post Script Tasks
 - Delete the server section from /etc/nginx/nginx.conf to disable the default site
+
+- Fix server name if non qnsk12.edu domain
+
+      nano /etc/nginx/conf.d/librenms.conf
 
 - Set Timezone in php.ini - find date.timezone and set to America/Chicago  (make sure to uncomment the line by removing the ;)
 
