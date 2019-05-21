@@ -190,9 +190,8 @@ Modifiy the SNMP settings on your switches
     
     #Aruba
     configure t
-    snmp-server community CommunityString
-    snmp-server enable trap 
-    snmp-server host IP version 2c CommunityString
+    snmp-server community CommunityString 
+    snmp-server host <IP> community <communityname>
     exit
     write memory
     
