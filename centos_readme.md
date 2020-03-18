@@ -13,7 +13,7 @@ LibreNMS is an open source network device management software.
     
     nmtui << change hostname if non qnsk12.edu domain
     
-    nano /etc/resolv.conf << change search name if non qnsk12.edu domain
+    vi /etc/resolv.conf << change search name if non qnsk12.edu domain
 
 
 ### Step 3: Update System
