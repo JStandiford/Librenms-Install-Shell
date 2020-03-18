@@ -4,9 +4,7 @@
    > (ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/LibreNMS_Files)
 
       
-### Step 2: Verify static IP on new VM per librenms_vmsettings using one of the following methods
-
-    vi /etc/sysconfig/network-scripts/ifcfg-eth0
+### Step 2: Verify IP & DNS settings on new VM per librenms_vmsettings using one of the following methods
     
     nmtui << change hostname if non qnsk12.edu domain
     
