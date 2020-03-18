@@ -4,7 +4,7 @@ LibreNMS is an open source network device management software.
 ## Install Steps：
 
 ### Step 1: Import CentOS VM
-   > (ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/LibreNMS_Files/)
+   > (ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/LibreNMS_Files)
 
       
 ### Step 2: Verify static IP on new VM per librenms_vmsettings using one of the following methods
