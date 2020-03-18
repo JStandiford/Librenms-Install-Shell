@@ -1,6 +1,3 @@
-## Automated installation of LibreNMS
-LibreNMS is an open source network device management software.
-
 ## Install Steps：
 
 ### Step 1: Import CentOS VM
