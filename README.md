@@ -7,7 +7,7 @@ LibreNMS is an open source network device management software.
    > ftp://ftp.k12tech.net/QNSTECHS/Jason%20Standiford/NetworkMonitor/LibreNMS_Files/
 
       
-### Step 3: Verify static IP on new VM per librenms_vmsettings using one of the following methods
+### Step 2: Verify static IP on new VM per librenms_vmsettings using one of the following methods
 
     vi /etc/sysconfig/network-scripts/ifcfg-eth0
     
@@ -16,18 +16,18 @@ LibreNMS is an open source network device management software.
     nano /etc/resolv.conf << change search name if non qnsk12.edu domain
 
 
-### Step 4: Update System
+### Step 3: Update System
     yum install nano
     yum install git
     yum -y update
     
 
 
-### Step 5: Clone Git 
+### Step 4: Clone Git 
     git clone https://github.com/JStandiford/Librenms-Install-Shell.git
 
 
-### Step 6:
+### Step 5:
 Run install script depending on the system, and root is recommended for installation
   
   
@@ -40,7 +40,7 @@ Run install script depending on the system, and root is recommended for installa
     sh Librenms-Install-Shell/ubuntu_install.sh (needs updated)
     
     
-### Step 7: Post Script Tasks
+### Step 6: Post Script Tasks
 - Delete the server section from /etc/nginx/nginx.conf to disable the default site
 
 - Fix server name if non qnsk12.edu domain
@@ -69,7 +69,7 @@ Run install script depending on the system, and root is recommended for installa
       - chown -R librenms:librenms /opt/librenms        
       
       
-### Step 8:
+### Step 7:
 Open the browser and connect to：http://YourLibreNMSIP/install.php  and make related settings based on the content (such as DB Password、DB Name, gui login info,).  Correct any errors based on the info given.  
 
 Create the config file and paste the contents provided to /opt/librenms/config.php
@@ -81,32 +81,32 @@ Create the config file and paste the contents provided to /opt/librenms/config.p
 Return to gui setup and 'Finish Install'
 
 
-### Step 9:
+### Step 8:
 Open browser and go to: http://librenms-centos.qnsk12.edu
 
 Login and validate the install
 
 
 
-### Step 10:
+### Step 9:
 Add your first device by adding the localhost (server LibreNMS is running on) 
 
 
-### Step 11:
+### Step 10:
 Edit LibreNMS config.php file with custom config.php file
 
 
-### Step 12:
+### Step 11:
     ./validate.php
     ./daily.sh
     ./snmp-scan.py
 
 
-### Step 13:
+### Step 12:
 Setup Alert Rules, Alert Templates, and Alert Transports per screenshots and txt docs
 
 
-### Step 14: Setup Oxidized
+### Step 13: Setup Oxidized
 
 Install Ruby 2.3 build dependencies
 
