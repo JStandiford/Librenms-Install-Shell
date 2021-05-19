@@ -135,11 +135,11 @@ Find the service:
     sudo find / -name "oxidized.service"
 Notate the path, and move to systemd based on the location discovered from “find”; the oxidized service file contains notes on the correct path to copy per flavor of linux:
 
-    cp /usr/local/rvm/gems/ruby-2.3.8/gems/oxidized-0.26.3/extra/oxidized.service /usr/lib/systemd/system/
+    cp /usr/local/rvm/gems/ruby-2.3.8/gems/oxidized-0.26.3/extra/oxidized.service /lib/systemd/system/
 
 Change user from “oxidized” to “root” and edit the ExecStart within the oxidized.service file:
 
-    nano /usr/lib/systemd/system/oxidized.service
+    nano /lib/systemd/system/oxidized.service
     
 ExecStart=/usr/local/rvm/gems/ruby-2.3.8/wrappers/oxidized     
     
